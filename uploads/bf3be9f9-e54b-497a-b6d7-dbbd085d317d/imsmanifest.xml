@@ -1,0 +1,123 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<manifest identifier="_5u8j1BoiP62_course_id" version="1.0" xmlns="http://www.imsproject.org/xsd/imscp_rootv1p1p2" xmlns:adlcp="http://www.adlnet.org/xsd/adlcp_rootv1p2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.imsproject.org/xsd/imscp_rootv1p1p2 imscp_rootv1p1p2.xsd http://www.imsglobal.org/xsd/imsmd_rootv1p2p1 imsmd_rootv1p2p1.xsd http://www.adlnet.org/xsd/adlcp_rootv1p2 adlcp_rootv1p2.xsd">
+  <metadata>
+    <schema>ADL SCORM</schema>
+    <schemaversion>1.2</schemaversion>
+    <lom xmlns="http://www.imsglobal.org/xsd/imsmd_rootv1p2p1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.imsglobal.org/xsd/imsmd_rootv1p2p1 imsmd_rootv1p2p1.xsd">
+      <general>
+        <title>
+          <langstring xml:lang="x-none">ATE Fundamentals_Lms</langstring>
+        </title>
+      </general>
+      <lifecycle>
+        <version>
+          <langstring xml:lang="x-none">1</langstring>
+        </version>
+        <status>
+          <source>
+            <langstring xml:lang="x-none">LOMv1.0</langstring>
+          </source>
+          <value>
+            <langstring xml:lang="x-none">Final</langstring>
+          </value>
+        </status>
+      </lifecycle>
+      <metametadata>
+        <metadatascheme>ADL SCORM 1.2</metadatascheme>
+      </metametadata>
+      <educational>
+        <typicallearningtime>
+          <datetime>PT0H0M0S</datetime>
+        </typicallearningtime>
+      </educational>
+      <rights>
+        <cost>
+          <source>
+            <langstring xml:lang="x-none">LOMv1.0</langstring>
+          </source>
+          <value>
+            <langstring xml:lang="x-none">yes</langstring>
+          </value>
+        </cost>
+        <copyrightandotherrestrictions>
+          <source>
+            <langstring xml:lang="x-none">LOMv1.0</langstring>
+          </source>
+          <value>
+            <langstring xml:lang="x-none">yes</langstring>
+          </value>
+        </copyrightandotherrestrictions>
+      </rights>
+    </lom>
+  </metadata>
+  <organizations default="ATE_Fundamentals_Lms_ORG">
+    <organization identifier="ATE_Fundamentals_Lms_ORG">
+      <title>ATE Fundamentals_Lms</title>
+      <item identifier="ATF_Fundamentals_Web_SCO" isvisible="true" identifierref="__5u8j1BoiP62_course_id_RES">
+        <title>ATE Fundamentals_Lms</title>
+      </item>
+    </organization>
+  </organizations>
+  <resources>
+    <resource identifier="__5u8j1BoiP62_course_id_RES" type="webcontent" href="index_lms.html" adlcp:scormtype="sco">
+      <file href="story_content/thumbnail.jpg" />
+      <file href="mobile/6M3hK1vH8dw.png" />
+      <file href="mobile/690UwVd0SUY.png" />
+      <file href="mobile/6FhIu4TZkPe.png" />
+      <file href="mobile/6cUR67ewuJx.png" />
+      <file href="mobile/5zaq5DHkZKQ.png" />
+      <file href="mobile/5kzx7i3wx0G.png" />
+      <file href="mobile/6dV5eq7FYFC.png" />
+      <file href="mobile/5ofC05XT3yp.png" />
+      <file href="mobile/6YwgYCTzcDV.png" />
+      <file href="mobile/5ZISfINxtPI.png" />
+      <file href="mobile/6KtI1K5XytY.png" />
+      <file href="mobile/5iiGUwBSofh.png" />
+      <file href="mobile/6qa0vxtatkP.png" />
+      <file href="mobile/6W8nx3hzZl5.png" />
+      <file href="mobile/6hzBY45Ia7v_M_1118_1118.png" />
+      <file href="meta.xml" />
+      <file href="story_content/user.js" />
+      <file href="html5/data/css/output.min.css" />
+      <file href="html5/data/js/5aBjKkuwxPk.js" />
+      <file href="html5/data/js/5tYMqD1ZNf2.js" />
+      <file href="html5/data/js/5VWi1qnDT0g.js" />
+      <file href="html5/data/js/5ZGCi3W3rFV.js" />
+      <file href="html5/data/js/6119Dn2GRxx.js" />
+      <file href="html5/data/js/62LJSdCN6bP.js" />
+      <file href="html5/data/js/6CXhc3LSJeU.js" />
+      <file href="html5/data/js/6Dmh7P18SCJ.js" />
+      <file href="html5/data/js/6GxeAtlGYHs.js" />
+      <file href="html5/data/js/6HZsaAHJzY8.js" />
+      <file href="html5/data/js/6kUh8T74TSh.js" />
+      <file href="html5/data/js/6m1JA6NVtMF.js" />
+      <file href="html5/data/js/6N1hC8GLGaQ.js" />
+      <file href="html5/data/js/6ngS89tYNEO.js" />
+      <file href="html5/data/js/6pJLDrpHboB.js" />
+      <file href="html5/data/js/6RvDsS8mhZX.js" />
+      <file href="html5/data/js/6TqHnzhRC1l.js" />
+      <file href="html5/data/js/6UPsLOXR3ob.js" />
+      <file href="html5/data/js/6VyETIKrubJ.js" />
+      <file href="html5/data/js/data.js" />
+      <file href="html5/data/js/frame.js" />
+      <file href="html5/data/js/paths.js" />
+      <file href="html5/lib/scripts/bootstrapper.min.js" />
+      <file href="html5/lib/scripts/frame.desktop.min.js" />
+      <file href="html5/lib/scripts/frame.mobile.min.js" />
+      <file href="html5/lib/scripts/slides.min.js" />
+      <file href="html5/lib/stylesheets/desktop.min.css" />
+      <file href="html5/lib/stylesheets/mobile.min.css" />
+      <file href="html5/lib/stylesheets/mobile-fonts/open-sans-bold.woff" />
+      <file href="html5/lib/stylesheets/mobile-fonts/open-sans-light.woff" />
+      <file href="html5/lib/stylesheets/mobile-fonts/open-sans-regular.woff" />
+      <file href="analytics-frame.html" />
+      <file href="story.html" />
+      <file href="index_lms.html" />
+      <file href="lms/AICCComm.html" />
+      <file href="lms/blank.html" />
+      <file href="lms/browsersniff.js" />
+      <file href="lms/goodbye.html" />
+      <file href="lms/scormdriver.js" />
+    </resource>
+  </resources>
+</manifest>

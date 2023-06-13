@@ -1,0 +1,13 @@
+{
+    "builds": [{
+        "src": "IReinforcement/wsgi.py",
+        "use": "@vercel/python",
+        "config": { "maxLambdaSize": "30mb", "runtime": "python 3.11.0" }
+    }],
+    "routes": [
+        {
+            "src": "/(.*)",
+            "dest": "IReinforcement/wsgi.py"
+        }
+    ]
+}
