@@ -1,3 +1,4 @@
+
 import os
 import stat
 import time
@@ -18,8 +19,6 @@ from django.shortcuts import render
 from django.middleware import csrf
 from django.views.decorators.csrf import csrf_exempt
 from django.views.decorators.http import require_POST
-
-quiz_nugget_created = False  
 
 @require_POST
 @csrf_exempt
@@ -63,7 +62,6 @@ def upload_file(request):
             return JsonResponse({'error': 'Invalid file format'}, status=400)
 
     return JsonResponse({'error': 'Invalid request'}, status=400)
-
 def preview_story(request, unique_id):
     story_html_path = os.path.join(settings.MEDIA_ROOT, 'uploads', unique_id, 'story.html')
     if not os.path.exists(story_html_path):
@@ -137,6 +135,7 @@ def get_scorm_data(request, unique_id):
         'id': unique_id,
         'table_data': table_data
     })
+    
 
 def update_scorm_data(request, unique_id):
     if request.method == 'PATCH':
@@ -155,7 +154,6 @@ def update_scorm_data(request, unique_id):
         return response
 
     return JsonResponse({'error': 'Invalid request method.'}, status=405)
-
 def update_output_csv(unique_id, updated_data):
     upload_path = os.path.join(settings.MEDIA_ROOT, 'uploads', unique_id)
     main_dir = os.path.join(upload_path, 'html5', 'data', 'js', 'main')
@@ -190,26 +188,24 @@ def process_300_chunks(unique_id, filename):
     csv_file_path = os.path.join(main_dir, filename)
     os.chmod(csv_file_path, stat.S_IRUSR | stat.S_IWUSR | stat.S_IRGRP | stat.S_IWGRP | stat.S_IROTH | stat.S_IWOTH)
 
-    nugget_id = create_nugget("LRPUITEST")
+    nugget_id =create_nugget("LRPUITEST")
     if nugget_id != "":
         complete_ost_list, title_list = process_csv(filename, unique_id)
         status = prepare_request_body(complete_ost_list, title_list, nugget_id)
         print("\n~~~~~~~~~~~~~~~~  Final Status of the process is => {}  ~~~~~~~~~~~~~~~~~".format(status))
-
-def process_csv(filename, unique_id):
+def process_csv(filename,unique_id):
     upload_path = os.path.join(settings.MEDIA_ROOT, 'uploads', unique_id)
     main_dir = os.path.join(upload_path, 'html5', 'data', 'js', 'main')
     csv_file_path = os.path.join(main_dir, filename)
     cwd = os.getcwd()
     df = pd.read_csv(os.path.join(cwd, csv_file_path))
     complete_ost_list, title_list = [], []
-    df = df[["title", "ost"]].values
+    df = df[[ "title", "ost"]].values
     for title, ost_value in df:
-        if isinstance(ost_value, str):
+        if type(ost_value) == type("dummy"):
             complete_ost_list.append(ost_value)
             title_list.append(title)
-    return complete_ost_list, title_list
-
+    return complete_ost_list, title_list       
 def prepare_request_body(complete_ost_list, title_list, nugget_id):
     print("\nInside prepare_request_body")
     total_word_count = sum(len(i.split(" ")) for i in complete_ost_list)
@@ -222,7 +218,8 @@ def prepare_request_body(complete_ost_list, title_list, nugget_id):
         start_index = 0
         for index in range(0, len(complete_ost_list)):
             if complete_ost_string:
-                complete_ost_string = complete_ost_string + " " + complete_ost_list[index]
+                complete_ost_string = complete_ost_string + \
+                    " " + complete_ost_list[index]
             else:
                 complete_ost_string = complete_ost_list[index]
             total_chars = len(complete_ost_string.split(" "))
@@ -230,33 +227,28 @@ def prepare_request_body(complete_ost_list, title_list, nugget_id):
                 learning_bite_title = "This is a Learning Bite"
                 if title_list:
                     for title in title_list[start_index:index]:
-                        if isinstance(title, str):
+                        if type(title) == type("dummy"):
                             learning_bite_title = title
                             break
                 start_index = index
-                generate_mcq_and_summary(complete_ost_string, nugget_id, learning_bite_title)
+                generate_mcq_and_summary(
+                    complete_ost_string, nugget_id, learning_bite_title)
                 total_chars = 0
                 complete_ost_string = ""
         return "Successfully Created Learning Bite"
 
+
 def generate_mcq_and_summary(request_body, nugget_id, learning_bite_title):
-    print("\nCalling generate_json for MCQ Creation")
-    response = create_quiz(request_body, nugget_id)  # Pass only 2 arguments: request_body and nugget_id
-    if response:
-        quiz_nugget_created = True
-    else:
-        quiz_nugget_created = False
-    print("\nCreate Quiz Status:", quiz_nugget_created)
+    print("\nCalling generate_json for MCQ and Summary")
+    print("\nRequest Body : ", request_body)
+    with open("output.txt", "a") as f:
+        f.write(request_body)
+        f.write("\n\n")
+    learning_bite_id = create_learning_bite(
+        nugget_id, learning_bite_title, request_body)
+        
+    create_quiz(request_body, learning_bite_id)
 
-    print("\nCalling create_summary for Summary Creation")
-    response = create_learning_bite(request_body, nugget_id, learning_bite_title)
-    if response:
-        summary_nugget_created = True
-    else:
-        summary_nugget_created = False
-    print("\nCreate Summary Status:", summary_nugget_created)
-
-    if quiz_nugget_created and summary_nugget_created:
-        return "MCQ and Summary Successfully Created"
-    else:
-        return "Error in Creating MCQ and Summary"
+def get_csrf_token(request):
+    csrf_middleware = csrf.get_token_middleware()
+    return csrf_middleware.process_view(request, None, (), {})

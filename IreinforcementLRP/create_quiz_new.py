@@ -90,7 +90,7 @@ def prepare_quiz_json(chatgpt_response, learning_bite_id):
 def create_quiz(request_body, learning_bite_id):
     url = "https://testplato.harbingergroup.com/api/quiz/createquiz"
     headers = CaseInsensitiveDict()
-    headers["Authorization"] = "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NDIyOGIwY2MzN2E3NmMwYTlmMzYxNTQiLCJyb2xlIjoiQXV0aG9yIiwib3JnYW5pemF0aW9uSWQiOiI1ZThkYWZjN2EwYzRjZjQ1OTdlZjQ4MjciLCJwbGFuIjoiNWVkMGE4ZWYzYzk1YTY5MTY0ODJkZTM5IiwidXNlcm5hbWUiOiJuZWhhLmJoYXJ0aUBoYXJiaW5nZXJncm91cC5jb20iLCJmaXJzdE5hbWUiOiJOZWhhIiwibGFzdE5hbWUiOiJCaGFydGkiLCJpYXQiOjE2ODY2MzY3ODQsImV4cCI6MTY4NjY3OTk4NH0.E_90Vaf_hxYIhykclPN36tN1oCT1FyIlP4eLFJwIiXU"
+    headers["Authorization"] = "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NDIyOGIwY2MzN2E3NmMwYTlmMzYxNTQiLCJyb2xlIjoiQXV0aG9yIiwib3JnYW5pemF0aW9uSWQiOiI1ZThkYWZjN2EwYzRjZjQ1OTdlZjQ4MjciLCJwbGFuIjoiNWVkMGE4ZWYzYzk1YTY5MTY0ODJkZTM5IiwidXNlcm5hbWUiOiJuZWhhLmJoYXJ0aUBoYXJiaW5nZXJncm91cC5jb20iLCJmaXJzdE5hbWUiOiJOZWhhIiwibGFzdE5hbWUiOiJCaGFydGkiLCJpYXQiOjE2ODY2NzQ0ODQsImV4cCI6MTY4NjcxNzY4NH0.PhSRBGyhDrXttmYHdc-UjETYW-3P9NriqYnuQC1McAk"
     headers["Content-Type"] = "application/json"
     headers["Username"] = "neha.bharti@harbingergroup.com"
     chatgptoutput = prepare_quizchatgpt(request_body)

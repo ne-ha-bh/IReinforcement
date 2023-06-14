@@ -10,6 +10,7 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/4.2/ref/settings/
 """
 
+import os
 from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -25,7 +26,8 @@ SECRET_KEY = 'django-insecure-%j=$uc3-66k4*#jpus2%$34ygn(wmd4g@ffci&o3#68%h0$fbh
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['.vercel.app']
+ALLOWED_HOSTS = []
+
 
 
 # Application definition
@@ -114,12 +116,17 @@ TIME_ZONE = 'UTC'
 USE_I18N = True
 
 USE_TZ = True
-
+CORS_ORIGIN_WHITELIST = [
+    'http://localhost:3000',
+    # Add other trusted origins if needed
+]
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.2/howto/static-files/
 
-STATIC_URL = 'static/'
+#STATIC_URL = 'static/'
+STATIC_URL = '/static/'
+
 FILE_UPLOAD_MAX_MEMORY_SIZE = 10485760
 CORS_ORIGIN_ALLOW_ALL = True
 

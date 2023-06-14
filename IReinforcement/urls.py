@@ -19,7 +19,6 @@ from django.conf.urls.static import static
 from django.urls import path
 from IreinforcementLRP.views import upload_file,preview_story,get_scorm_data,update_scorm_data,process_300_chunks
 
-
 urlpatterns = [
     path('upload', upload_file, name='upload-file'),
     path('<str:unique_id>/story.html', preview_story, name='preview-story'),
